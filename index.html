@@ -1,1 +1,400 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hundeschule Wolfenbüttel – Welpen, Junghunde & Alltagstraining</title>
+  <meta name="description" content="Hundeschule im Landkreis Wolfenbüttel: Welpenkurs, Junghundetraining, Alltag & Leinenführigkeit, Rückruf, Beschäftigung. Gewaltfrei, alltagsnah, individuell." />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="canonical" href="https://example.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hundeschule Wolfenbüttel" />
+  <meta property="og:description" content="Gewaltfreies, alltagsnahes Hundetraining im Landkreis Wolfenbüttel." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/hero.jpg" />
+
+  <style>
+    :root{
+      --bg:#f7fbfa;
+      --text:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --brand:#0d9488;        /* Petrolgrün */
+      --brand-dark:#0f766e;
+      --accent:#22c55e;       /* frisches Grün */
+      --ring:rgba(13,148,136,.25);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.6}
+
+    /* Layout Helpers */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .section{padding:64px 0}
+    h1,h2,h3{line-height:1.2;margin:0 0 10px}
+    h2{font-size:clamp(24px,3vw,34px)}
+    h3{font-size:clamp(18px,2.2vw,22px)}
+    p{margin:0 0 12px}
+
+    /* Header / Hero */
+    .hero{
+      min-height:72vh; color:#fff; position:relative; display:flex; flex-direction:column;
+      background:
+        linear-gradient( to bottom, rgba(15,118,110,.65), rgba(15,118,110,.45) 35%, rgba(15,118,110,.35) ),
+        url("assets/hero.jpg") center/cover no-repeat fixed;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0}
+    .brand{display:flex; gap:12px; align-items:center; font-weight:700}
+    .brand img{width:40px;height:40px;border-radius:10px;object-fit:cover}
+    .nav a{color:#fff; text-decoration:none; opacity:.92}
+    .nav a:hover{opacity:1}
+    .nav .menu{display:flex;gap:18px}
+    .cta{
+      display:inline-block; padding:10px 14px; border-radius:12px;
+      background:var(--accent); color:#064e3b; font-weight:700; text-decoration:none;
+      box-shadow:0 8px 24px rgba(34,197,94,.35)
+    }
+    .cta:hover{filter:brightness(.98)}
+    .hero-inner{flex:1; display:flex; align-items:center}
+    .hero h1{font-size:clamp(28px,5vw,48px); margin:0 0 8px}
+    .hero p.lead{max-width:720px; font-size:clamp(16px,2.2vw,20px); opacity:.98}
+    .hero .actions{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
+    .button{
+      display:inline-block; padding:12px 18px; border-radius:14px; text-decoration:none; font-weight:700;
+      background:var(--brand); color:#fff; box-shadow:0 10px 28px rgba(13,148,136,.35);
+      transition:transform .08s ease, background .2s ease
+    }
+    .button:hover{background:var(--brand-dark); transform:translateY(-1px)}
+    .ghost{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.3)}
+
+    /* Cards & Grids */
+    .grid{display:grid; gap:18px}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--card); border-radius:16px; padding:18px; box-shadow:0 8px 28px rgba(2,6,23,.06)}
+    .card p{color:var(--muted)}
+    .badge{display:inline-block; padding:4px 10px; border-radius:999px; background:rgba(13,148,136,.1); color:var(--brand); font-weight:600; font-size:12px}
+
+    /* Feature list */
+    .list{display:grid; gap:10px; padding:0; margin:12px 0; list-style:none}
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .list svg{flex:0 0 22px}
+
+    /* Price table */
+    .price{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+    .price .plan{background:#fff;border-radius:18px;padding:20px;border:1px solid #e5e7eb}
+    .plan h3{margin-bottom:6px}
+    .plan .value{font-size:28px; font-weight:800}
+    .plan small{color:var(--muted)}
+    .plan .features{margin-top:8px}
+    .plan .book{margin-top:14px}
+
+    /* Testimonials */
+    .quote{background:#fff;border-radius:16px;padding:18px;box-shadow:0 8px 28px rgba(2,6,23,.06);position:relative}
+    .quote:before{content:"“"; position:absolute; left:12px; top:-10px; font-size:64px; color:#e2e8f0; line-height:1}
+
+    /* Footer */
+    .footer{background:#0b3a36;color:#d1fae5;padding:28px 0}
+    .footer a{color:#a7f3d0}
+    .fine{font-size:13px;color:#94a3b8}
+
+    /* Forms */
+    form{display:grid; gap:10px}
+    input, textarea, select{
+      width:100%; padding:12px 12px; border-radius:12px; border:1px solid #e5e7eb; background:#fff;
+      font:inherit; color:inherit; outline:none
+    }
+    input:focus, textarea:focus, select:focus{box-shadow:0 0 0 6px var(--ring); border-color:var(--brand)}
+    .pill{display:flex; gap:10px; flex-wrap:wrap}
+    .pill a{padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #e5e7eb;text-decoration:none;color:var(--text)}
+    .pill a:hover{border-color:#cbd5e1}
+
+    /* Utility */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    .hide-on-mobile{display:none}
+    @media (min-width: 860px){ .hide-on-mobile{display:inline-flex} }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <div class="brand">
+          <img src="assets/logo.png" alt="Logo Hundeschule Wolfenbüttel" />
+          <span>Hundeschule Wolfenbüttel</span>
+        </div>
+        <div class="menu hide-on-mobile">
+          <a href="#angebote">Angebote</a>
+          <a href="#methodik">Methodik</a>
+          <a href="#termine">Termine</a>
+          <a href="#preise">Preise</a>
+          <a href="#kontakt" class="cta">Jetzt Termin</a>
+        </div>
+      </nav>
+
+      <div class="hero-inner">
+        <div class="container">
+          <span class="badge">Landkreis Wolfenbüttel · Mobil & Platztraining</span>
+          <h1>Alltagsnahes Hundetraining – freundlich, klar & wirksam.</h1>
+          <p class="lead">Vom Welpenkurs bis zum sicheren Rückruf: Wir begleiten euch durch die wichtigen Lernphasen – in Wolfenbüttel, Cremlingen, Schladen-Werne, Sickte, Schöppenstedt & Umgebung.</p>
+          <div class="actions">
+            <a class="button" href="#kontakt">Kostenloses Vorgespräch</a>
+            <a class="button ghost" href="#angebote" aria-label="Zu den Angeboten">Angebote ansehen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Social proof / Infoleisten -->
+    <section class="section">
+      <div class="container grid grid-3">
+        <div class="card">
+          <h3>Welpen & Junghunde</h3>
+          <p>Sozialisierung, Ruhe lernen, Rückruf, Leine laufen – spielerisch und strukturiert.</p>
+        </div>
+        <div class="card">
+          <h3>Alltag & Erziehung</h3>
+          <p>Orientierung am Menschen, Impulskontrolle, Stadttraining, Hundebegegnungen.</p>
+        </div>
+        <div class="card">
+          <h3>Beschäftigung</h3>
+          <p>Nasenarbeit, Tricktraining, Longieren – sinnvolle Auslastung statt Hibbeligkeit.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Angebote -->
+    <section id="angebote" class="section">
+      <div class="container">
+        <h2>Unsere Angebote</h2>
+        <div class="grid grid-3" style="margin-top:14px">
+          <div class="card">
+            <h3>Welpengruppe (8–20 Wochen)</h3>
+            <p class="muted">Kleine Gruppen, sichere Kontakte, kurze Übungseinheiten & Pausen.</p>
+            <ul class="list">
+              <li>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Sozialkompetenz & Frustrationstoleranz
+              </li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Rückruf & Name-Response</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Beißhemmung & Handling</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Junghunde (5–18 Monate)</h3>
+            <p class="muted">Pubertät gelassen meistern: Orientierung, Leinenführigkeit, Impulskontrolle.</p>
+            <ul class="list">
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Begegnungstraining & Rückruf unter Ablenkung</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Frust- & Stressmanagement</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Einzeltraining</h3>
+            <p class="muted">Individuell bei dir vor Ort (LK Wolfenbüttel) oder auf unserem Trainingsplatz.</p>
+            <ul class="list">
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Leine, Rückruf, Jagdtrieb, Alleinbleiben</li>
+              <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Alltagscoaching & Hausbesuch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodik -->
+    <section id="methodik" class="section">
+      <div class="container grid" style="grid-template-columns:1.2fr 1fr; gap:24px">
+        <div class="card">
+          <h2>Unsere Methodik</h2>
+          <p>Wissenschaftlich fundiert, belohnungsbasiert und alltagsnah. Wir trainieren kleinschrittig, klar und fair – damit Hund und Mensch sicher und entspannt durch den Alltag kommen.</p>
+          <ul class="list">
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Positive Verstärkung statt Strafe</li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Kleine Gruppen, klare Strukturen</li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2"/></svg>Übungen für Zuhause mit Handouts</li>
+          </ul>
+          <div class="pill" aria-label="Einsatzgebiet">
+            <a>Wolfenbüttel</a><a>Sickte</a><a>Cremlingen</a><a>Schöppenstedt</a><a>Schladen-Werne</a><a>Dettum</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Trainerin</h3>
+          <p><strong>Maxime Beispiel</strong><br/>Zertifizierte Hundetrainerin (§11 TierSchG), mehrjährige Erfahrung in Welpen- und Alltagstraining, eigene Mehrhunde-Haltung.</p>
+          <p class="muted">„Klare Strukturen & Freundlichkeit schließen sich nicht aus. Wir trainieren fair – für echte Alltagssicherheit.“</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Termine -->
+    <section id="termine" class="section">
+      <div class="container">
+        <h2>Aktuelle Termine</h2>
+        <div class="grid grid-3" style="margin-top:14px">
+          <div class="card">
+            <h3>Welpengruppe</h3>
+            <p>Samstags · 10:00–10:50 · Wolfenbüttel</p>
+            <p class="muted">Rolling start – Einstieg jede Woche möglich, wenn Platz frei ist.</p>
+          </div>
+          <div class="card">
+            <h3>Junghunde</h3>
+            <p>Mittwochs · 17:30–18:30 · Sickte</p>
+            <p class="muted">Schwerpunkte: Leine, Begegnungen, Rückruf.</p>
+          </div>
+          <div class="card">
+            <h3>Begegnungstraining</h3>
+            <p>Monatlich · Sonntags · wechselnde Orte</p>
+            <p class="muted">Kleingruppe, kontrollierte Distanzen, Praxis im Alltag.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preise -->
+    <section id="preise" class="section">
+      <div class="container">
+        <h2>Preise</h2>
+        <div class="price" style="margin-top:14px">
+          <div class="plan">
+            <h3>Erstgespräch</h3>
+            <div class="value">0 €</div>
+            <small>Telefonisch · 15–20 Minuten</small>
+            <p class="features muted">Kennenlernen, Ziele, Ablauf & passende Kurse.</p>
+            <div class="book"><a class="button" href="#kontakt">Termin anfragen</a></div>
+          </div>
+          <div class="plan">
+            <h3>Einzeltraining</h3>
+            <div class="value">69 €</div>
+            <small>à 60 Minuten (zzgl. Fahrtkosten außerhalb WF)</small>
+            <p class="features muted">Individuell, inkl. Handout & Übungsplan.</p>
+            <div class="book"><a class="button" href="#kontakt">Einzel buchen</a></div>
+          </div>
+          <div class="plan">
+            <h3>Kurs · 5er Karte</h3>
+            <div class="value">129 €</div>
+            <small>Welpengruppe / Junghunde</small>
+            <p class="features muted">Fünf aufeinander aufbauende Einheiten.</p>
+            <div class="book"><a class="button" href="#kontakt">Platz sichern</a></div>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:8px">Alle Preise inkl. MwSt. | Stand: <span id="price-date">heute</span></p>
+      </div>
+    </section>
+
+    <!-- Stimmen -->
+    <section class="section">
+      <div class="container grid grid-3">
+        <div class="quote">
+          <p>Ruhiges, klares Training – unser Rückruf sitzt endlich auch am Feldrand. Danke!</p>
+          <p class="muted">– Anja mit „Fiete“</p>
+        </div>
+        <div class="quote">
+          <p>Die Welpengruppe war perfekt dosiert. Viele Pausen, tolle Erklärungen, super Material.</p>
+          <p class="muted">– Jonas & Lea</p>
+        </div>
+        <div class="quote">
+          <p>Stadttraining mit Plan: Begegnungen sind kein Stress mehr. Absolute Empfehlung.</p>
+          <p class="muted">– Familie K.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="section">
+      <div class="container grid" style="grid-template-columns:1.1fr 1fr; gap:24px">
+        <div class="card">
+          <h2>Kontakt</h2>
+          <p><strong>Hundeschule Wolfenbüttel</strong><br/>Musterweg 7 · 38300 Wolfenbüttel</p>
+          <p>Tel. <a href="tel:+49531234567">0531 234567</a><br/>Mail <a href="mailto:hallo@hundeschule-wf.de">hallo@hundeschule-wf.de</a></p>
+          <form name="kontakt" netlify>
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Vor- und Nachname" required />
+            </label>
+            <label>
+              <span>E-Mail</span>
+              <input type="email" name="email" placeholder="name@mail.de" required />
+            </label>
+            <label>
+              <span>Hund & Alter</span>
+              <input type="text" name="hund" placeholder="z. B. „Lotti, 8 Monate“" />
+            </label>
+            <label>
+              <span>Nachricht</span>
+              <textarea name="message" rows="4" placeholder="Worum geht es?"></textarea>
+            </label>
+            <button class="button" type="submit">Unverbindlich anfragen</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Trainingsplatz & Einsatzgebiet</h3>
+          <p class="muted">Trainingsplatz nahe Wolfenbüttel; Hausbesuche im gesamten Landkreis.</p>
+          <div style="border-radius:12px; overflow:hidden; aspect-ratio:16/10; background:#e2e8f0; display:grid; place-items:center; margin-top:8px">
+            <!-- Du kannst hier später eine echte Google-Maps-Embed-URL einsetzen -->
+            <span class="muted">Karte folgt – „Trainingsplatz Wolfenbüttel“</span>
+          </div>
+          <p style="margin-top:10px">Sickte · Cremlingen · Schöppenstedt · Schladen-Werne · Börßum · Kissenbrück · Dettum · Evessen u.v.m.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:2fr 1fr 1fr; gap:18px">
+        <div>
+          <strong>Hundeschule Wolfenbüttel</strong>
+          <p class="fine">Gewaltfreies Hundetraining im Landkreis Wolfenbüttel. Datenschonend, transparent und mit Herz.</p>
+        </div>
+        <div>
+          <strong>Schnellzugriff</strong>
+          <p><a href="#angebote">Angebote</a><br/><a href="#preise">Preise</a><br/><a href="#kontakt">Kontakt</a></p>
+        </div>
+        <div>
+          <strong>Rechtliches</strong>
+          <p><a href="#">Impressum</a><br/><a href="#">Datenschutz</a></p>
+        </div>
+      </div>
+      <p class="fine">© <span id="year"></span> Hundeschule Wolfenbüttel</p>
+    </div>
+  </footer>
+
+  <!-- JSON-LD (LocalBusiness / PetTraining) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hundeschule Wolfenbüttel",
+    "image": "https://example.github.io/assets/hero.jpg",
+    "description": "Belohnungsbasiertes Hundetraining im Landkreis Wolfenbüttel: Welpen, Junghunde, Alltag & Rückruf.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Musterweg 7",
+      "addressLocality": "Wolfenbüttel",
+      "postalCode": "38300",
+      "addressCountry": "DE"
+    },
+    "areaServed": ["Wolfenbüttel","Sickte","Cremlingen","Schöppenstedt","Schladen-Werne","Dettum"],
+    "telephone": "+49-531-234567",
+    "email": "hallo@hundeschule-wf.de",
+    "url": "https://example.github.io/",
+    "priceRange": "€€",
+    "sameAs": []
+  }
+  </script>
+
+  <script>
+    // kleine Komfort-Funktionen
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const d = new Date(); document.getElementById('price-date').textContent =
+      d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit', year:'numeric' });
+  </script>
+
+</body>
+</html>
 
